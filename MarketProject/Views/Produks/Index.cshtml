@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MarketProject.Models.Produk>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaProduk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaProduk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JumlahProduk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaProduk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HargaProduk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JumlahProduk)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdProduk">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdProduk">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProduk">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
